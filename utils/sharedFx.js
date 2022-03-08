@@ -3,6 +3,7 @@ const TOCHECK = "TOCHECK";
 const CASEERROR = "MAYUSCULAS";
 const LENGTH = "LENGTH";
 const EXTENSION = "EXTENSION";
+const INVERT = "INVERT";
 
 const checkRepeatValues = (idsGoogle) => {
   let findDuplicates = (arr) =>
@@ -45,7 +46,16 @@ const sameNumbersComparison = (zohoCelularesString, gmailCelularesString) => {
 
       if (indexGC === indexZC) {
         if (gmailCelular !== zohoCel) {
-          textExcelCompa += `${EXTENSION}`;
+          if (indexGC + 1 < gmailCelulares.length) {
+            const gmCelAux = gmailCelulares[indexGC];
+            if (gmCelAux == indexZC) {
+              textExcelCompa += `${INVERT}/`;
+            } else {
+              textExcelCompa += `${EXTENSION}/`;
+            }
+          } else {
+            textExcelCompa += `${EXTENSION}/`;
+          }
           //return TOCHECK;
         }
       }
