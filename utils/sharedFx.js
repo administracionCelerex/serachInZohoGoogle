@@ -46,7 +46,7 @@ const sameNumbersComparison = (zohoCelularesString, gmailCelularesString) => {
 
       if (indexGC === indexZC) {
         if (gmailCelular !== zohoCel) {
-          if (indexGC + 1 < gmailCelulares.length) {
+          /* if (indexGC + 1 < gmailCelulares.length) {
             const gmCelAux = gmailCelulares[indexGC];
             if (gmCelAux == indexZC) {
               textExcelCompa += `${INVERT}/`;
@@ -55,7 +55,14 @@ const sameNumbersComparison = (zohoCelularesString, gmailCelularesString) => {
             }
           } else {
             textExcelCompa += `${EXTENSION}/`;
+          } */
+          const ordenChanged = gmailCelulares.some((gmC) => gmC === zohoCel);
+          if (ordenChanged) {
+            textExcelCompa += `${INVERT}/`;
+          } else {
+            textExcelCompa += `${EXTENSION}/`;
           }
+
           //return TOCHECK;
         }
       }
