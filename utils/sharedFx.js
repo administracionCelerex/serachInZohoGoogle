@@ -1,6 +1,8 @@
 const IGUAL = "IGUAL";
 const TOCHECK = "TOCHECK";
 const CASEERROR = "MAYUSCULAS";
+const LENGTH = "LENGTH";
+const EXTENSION = "EXTENSION";
 
 const checkRepeatValues = (idsGoogle) => {
   let findDuplicates = (arr) =>
@@ -24,13 +26,16 @@ const sameNameComparison = (nameZoho, nameGmail) => {
 };
 
 const sameNumbersComparison = (zohoCelularesString, gmailCelularesString) => {
+  let textExcelCompa = "";
   const gmailCelulares = gmailCelularesString.split(",");
   const zohoCelulares = zohoCelularesString.split(",");
 
   const gmailCelularesQuantity = gmailCelulares.length;
   const zohoCelularesQuantity = zohoCelulares.length;
 
-  if (gmailCelularesQuantity != zohoCelularesQuantity) return TOCHECK;
+  if (gmailCelularesQuantity != zohoCelularesQuantity) {
+    textExcelCompa += `${LENGTH}/`;
+  }
 
   for (let indexGC = 0; indexGC < gmailCelulares.length; indexGC++) {
     const gmailCelular = gmailCelulares[indexGC];
@@ -40,10 +45,15 @@ const sameNumbersComparison = (zohoCelularesString, gmailCelularesString) => {
 
       if (indexGC === indexZC) {
         if (gmailCelular !== zohoCel) {
-          return TOCHECK;
+          textExcelCompa += `${EXTENSION}`;
+          //return TOCHECK;
         }
       }
     }
+  }
+  if (textExcelCompa !== "") {
+    textExcelCompa = `${TOCHECK}/${textExcelCompa}`;
+    return textExcelCompa;
   }
 
   return IGUAL;
