@@ -40,3 +40,6 @@ dando como reusltado un archivo Ecxel el cual puede ser analizado
 *   GmailDataConverted.xlsx (todos los contactos de Gmail pasados a un ecxel)
 *   idsRepetidos.txt (muchas veces un contacto esta repetido o tiene similitud con otro, este archivo se usa para saber cuales contactos el sitema confunndio, le puso informacion errornea. debe ser revisado el archivo **interseccion** y remplazar correctamente la informacion)
 
+## Notas
+
+Cada que se corre el sitema los archivos que se crean remplazan a los existentes por lo cual es necesario guardar antes estos archivos.
